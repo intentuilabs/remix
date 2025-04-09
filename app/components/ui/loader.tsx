@@ -1,4 +1,4 @@
-import { IconLoader } from "justd-icons"
+import { IconLoader } from "@intentui/icons"
 import { ProgressBar } from "react-aria-components"
 import { twMerge } from "tailwind-merge"
 import type { VariantProps } from "tailwind-variants"

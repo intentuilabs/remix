@@ -1,4 +1,7 @@
-import { Card, CardDescription, CardHeader, Container, Heading } from "ui"
+// import { Card, CardDescription, CardHeader, Container, Heading } from "ui"
+import { Card, CardDescription, CardHeader } from "~/components/ui/card"
+import { Container } from "~/components/ui/container"
+import { Heading } from "~/components/ui/heading"
 
 interface HeaderProps {
 	title: string

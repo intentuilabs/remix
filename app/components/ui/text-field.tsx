@@ -1,19 +1,14 @@
 import { useState } from "react"
 
-import type { TextInputDOMProps } from "@react-types/shared"
-import { IconEye, IconEyeClosed } from "justd-icons"
-import {
-	Button as ButtonPrimitive,
-	TextField as TextFieldPrimitive,
-	type TextFieldProps as TextFieldPrimitiveProps,
-} from "react-aria-components"
-
+import { IconEye, IconEyeClosed } from "@intentui/icons"
+import { Button as ButtonPrimitive, TextField as TextFieldPrimitive } from "react-aria-components"
+import type { InputProps, TextFieldProps as TextFieldPrimitiveProps } from "react-aria-components"
 import type { FieldProps } from "./field"
 import { Description, FieldError, FieldGroup, Input, Label } from "./field"
 import { Loader } from "./loader"
 import { composeTailwindRenderProps } from "./primitive"
 
-type InputType = Exclude<TextInputDOMProps["type"], "password">
+type InputType = Exclude<InputProps["type"], "password">
 
 interface BaseTextFieldProps extends TextFieldPrimitiveProps, FieldProps {
 	prefix?: React.ReactNode
@@ -77,7 +72,7 @@ const TextField = ({
 								type="button"
 								aria-label="Toggle password visibility"
 								onPress={handleTogglePasswordVisibility}
-								className="relative mr-1 grid shrink-0 place-content-center rounded-sm border-transparent outline-hidden data-focus-visible:*:data-[slot=icon]:text-primary *:data-[slot=icon]:text-muted-fg"
+								className="relative mr-1 grid shrink-0 place-content-center rounded-sm border-transparent outline-hidden *:data-[slot=icon]:text-muted-fg focus-visible:*:data-[slot=icon]:text-primary"
 							>
 								{isPasswordVisible ? <IconEyeClosed /> : <IconEye />}
 							</ButtonPrimitive>

@@ -1,11 +1,13 @@
 import type { MetaFunction } from "@remix-run/node"
-import { Card, Container, Link } from "ui"
 import { Header } from "~/components/header"
+import { Card } from "~/components/ui/card"
+import { Container } from "~/components/ui/container"
+import { Link } from "~/components/ui/link"
 
 export const meta: MetaFunction = () => {
 	return [
 		{
-			title: "Justd Starter Kit with Remix",
+			title: "Intent UI Starter Kit with Remix",
 		},
 		{
 			name: "description",

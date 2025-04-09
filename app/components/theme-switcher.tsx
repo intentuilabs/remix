@@ -1,6 +1,6 @@
-import { IconMoon, IconSun } from "justd-icons"
+import { IconMoon, IconSun } from "@intentui/icons"
 import { Theme, useTheme } from "remix-themes"
-import { Button } from "ui"
+import { Button } from "~/components/ui/button"
 
 export function ThemeSwitcher() {
 	const [theme, setTheme] = useTheme()

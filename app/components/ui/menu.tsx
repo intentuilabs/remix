@@ -1,6 +1,6 @@
 import { createContext, use } from "react"
 
-import { IconBulletFill, IconCheck, IconChevronLgRight } from "justd-icons"
+import { IconBulletFill, IconCheck, IconChevronLgRight } from "@intentui/icons"
 import type {
 	ButtonProps,
 	MenuItemProps as MenuItemPrimitiveProps,
@@ -22,7 +22,6 @@ import {
 } from "react-aria-components"
 import { twMerge } from "tailwind-merge"
 import type { VariantProps } from "tailwind-variants"
-import { tv } from "tailwind-variants"
 import {
 	DropdownItemDetails,
 	DropdownKeyboard,
@@ -32,6 +31,7 @@ import {
 	dropdownSectionStyles,
 } from "./dropdown"
 import { PopoverContent } from "./popover"
+import { composeTailwindRenderProps } from "./primitive"
 
 interface MenuContextProps {
 	respectScreen: boolean
@@ -57,23 +57,21 @@ const MenuSubMenu = ({ delay = 0, ...props }) => (
 	</SubmenuTriggerPrimitive>
 )
 
-const menuStyles = tv({
-	slots: {
-		menu: "grid max-h-[calc(var(--visual-viewport-height)-10rem)] grid-cols-[auto_1fr] overflow-auto rounded-xl p-1 outline-hidden [clip-path:inset(0_0_0_0_round_calc(var(--radius-lg)-2px))] sm:max-h-[inherit] *:[[role='group']+[role=group]]:mt-4 *:[[role='group']+[role=separator]]:mt-1",
-		popover: "z-50 p-0 shadow-xs outline-hidden sm:min-w-40",
-		trigger: ["relative inline text-left outline-hidden data-focus-visible:ring-1 data-focus-visible:ring-primary"],
-	},
-})
-
-const { menu, popover, trigger } = menuStyles()
-
 interface MenuTriggerProps extends ButtonProps {
 	className?: string
 	ref?: React.Ref<HTMLButtonElement>
 }
 
 const MenuTrigger = ({ className, ref, ...props }: MenuTriggerProps) => (
-	<Button ref={ref} data-slot="menu-trigger" className={trigger({ className })} {...props}>
+	<Button
+		ref={ref}
+		data-slot="menu-trigger"
+		className={composeTailwindRenderProps(
+			className,
+			"relative inline text-left outline-hidden focus-visible:ring-1 focus-visible:ring-primary",
+		)}
+		{...props}
+	>
 		{(values) => <>{typeof props.children === "function" ? props.children(values) : props.children}</>}
 	</Button>
 )
@@ -116,11 +114,16 @@ const MenuContent = <T extends object>({
 			crossOffset={props.crossOffset}
 			triggerRef={props.triggerRef}
 			arrowBoundaryOffset={props.arrowBoundaryOffset}
-			className={popover({
-				className: popoverClassName,
-			})}
+			className={composeTailwindRenderProps(popoverClassName, "z-50 p-0 shadow-xs outline-hidden sm:min-w-40")}
 		>
-			<MenuPrimitive className={menu({ className })} {...props} />
+			<MenuPrimitive
+				data-slot="menu-content"
+				className={composeTailwindRenderProps(
+					className,
+					"grid max-h-[calc(var(--visual-viewport-height)-10rem)] grid-cols-[auto_1fr] overflow-auto rounded-xl p-1 outline-hidden [clip-path:inset(0_0_0_0_round_calc(var(--radius-lg)-2px))] sm:max-h-[inherit] *:[[role='group']+[role=group]]:mt-4 *:[[role='group']+[role=separator]]:mt-1",
+				)}
+				{...props}
+			/>
 		</PopoverContent>
 	)
 }

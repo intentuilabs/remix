@@ -1,9 +1,9 @@
 import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node"
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from "@remix-run/react"
 import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from "remix-themes"
-import { Toast } from "ui"
 import { AppNavbar } from "~/app-navbar"
 import { Footer } from "~/components/footer"
+import { Toast } from "~/components/ui/toast"
 import stylesheet from "~/tailwind.css?url"
 import { themeSessionResolver } from "./sessions.server"
 

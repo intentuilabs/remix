@@ -1,5 +1,13 @@
-import { IconBrandFacebook, IconBrandGithub, IconBrandInstagram, IconBrandTwitter, IconBrandYoutube } from "justd-icons"
-import { Button, Link, TextField } from "ui"
+import {
+	IconBrandFacebook,
+	IconBrandGithub,
+	IconBrandInstagram,
+	IconBrandTwitter,
+	IconBrandYoutube,
+} from "@intentui/icons"
+import { Button } from "~/components/ui/button"
+import { Link } from "~/components/ui/link"
+import { TextField } from "~/components/ui/text-field"
 
 const navigation = {
 	solutions: [

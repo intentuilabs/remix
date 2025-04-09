@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react"
 
-import { IconX } from "justd-icons"
+import { IconX } from "@intentui/icons"
 import type { HeadingProps } from "react-aria-components"
 import { Button as ButtonPrimitive, Dialog as DialogPrimitive, Heading, Text } from "react-aria-components"
 
@@ -166,7 +166,7 @@ const CloseIndicator = ({ className, ...props }: CloseButtonIndicatorProps) => {
 			slot="close"
 			className={composeTailwindRenderProps(
 				className,
-				"close absolute top-1 right-1 z-50 grid size-8 place-content-center rounded-xl hover:bg-secondary focus:bg-secondary focus:outline-hidden data-focus-visible:ring-1 data-focus-visible:ring-primary sm:top-2 sm:right-2 sm:size-7 sm:rounded-md",
+				"close absolute top-1 right-1 z-50 grid size-8 place-content-center rounded-xl hover:bg-secondary focus:bg-secondary focus:outline-hidden focus-visible:ring-1 focus-visible:ring-primary sm:top-2 sm:right-2 sm:size-7 sm:rounded-md",
 			)}
 		>
 			<IconX className="size-4" />

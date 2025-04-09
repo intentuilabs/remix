@@ -1,6 +1,10 @@
-import { IconArrowUpRight, IconBrandGithub, IconBrandJustd, IconChevronLgDown } from "justd-icons"
-import { Link, Menu, Navbar, Separator, buttonStyles } from "ui"
+import { IconArrowUpRight, IconBrandGithub, IconBrandIntentui, IconChevronLgDown } from "@intentui/icons"
 import { ThemeSwitcher } from "~/components/theme-switcher"
+import { buttonStyles } from "~/components/ui/button"
+import { Link } from "~/components/ui/link"
+import { Menu } from "~/components/ui/menu"
+import { Navbar } from "~/components/ui/navbar"
+import { Separator } from "~/components/ui/separator"
 
 const navigations = [
 	{
@@ -22,7 +26,7 @@ export function AppNavbar() {
 		<Navbar>
 			<Navbar.Nav>
 				<Navbar.Logo href="/">
-					<IconBrandJustd />
+					<IconBrandIntentui />
 				</Navbar.Logo>
 				<Navbar.Section>
 					{navigations.map((item) => (
@@ -70,7 +74,7 @@ export function AppNavbar() {
 						target="_blank"
 						aria-label="Go to Justd"
 					>
-						<IconBrandJustd />
+						<IconBrandIntentui />
 					</Link>
 				</Navbar.Section>
 			</Navbar.Nav>
@@ -80,7 +84,7 @@ export function AppNavbar() {
 					<Navbar.Trigger className="-ml-2" />
 					<Separator orientation="vertical" className="h-6" />
 					<Navbar.Logo href="/">
-						<IconBrandJustd />
+						<IconBrandIntentui />
 					</Navbar.Logo>
 				</Navbar.Flex>
 				<Navbar.Flex className="gap-x-1">
@@ -99,7 +103,7 @@ export function AppNavbar() {
 						target="_blank"
 						aria-label="Go to Justd"
 					>
-						<IconBrandJustd />
+						<IconBrandIntentui />
 					</Link>
 				</Navbar.Flex>
 			</Navbar.Compact>

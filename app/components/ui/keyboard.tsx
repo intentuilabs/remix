@@ -13,7 +13,7 @@ const Keyboard = ({ keys, classNames, className, ...props }: KeyboardProps) => {
 	return (
 		<KeyboardPrimitive
 			className={twMerge(
-				"hidden text-current/70 group-hover:text-fg group-focus:text-fg group-focus:opacity-90 group-disabled:opacity-50 lg:inline-flex forced-colors:group-focus:text-[HighlightText]",
+				"hidden font-mono text-current/60 group-hover:text-fg group-focus:text-fg group-focus:opacity-90 group-disabled:opacity-50 lg:inline-flex forced-colors:group-focus:text-[HighlightText] forced-colors:group-focus:text-[HighlightText]",
 				classNames?.base,
 			)}
 			{...props}
@@ -21,11 +21,7 @@ const Keyboard = ({ keys, classNames, className, ...props }: KeyboardProps) => {
 			{(Array.isArray(keys) ? keys : keys.split("")).map((char, index) => (
 				<kbd
 					key={index}
-					className={twMerge(
-						"hidden text-current/70 group-hover:text-fg group-focus:text-fg group-focus:opacity-90 group-disabled:opacity-50 lg:inline-flex forced-colors:group-focus:text-[HighlightText]",
-						index > 0 && char.length > 1 && "pl-1",
-						classNames?.kbd,
-					)}
+					className={twMerge("tracking-widest", index > 0 && char.length > 1 && "pl-1", classNames?.kbd)}
 				>
 					{char}
 				</kbd>

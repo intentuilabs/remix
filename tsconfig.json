@@ -23,8 +23,7 @@
 		"forceConsistentCasingInFileNames": true,
 		"baseUrl": ".",
 		"paths": {
-			"~/*": ["./app/*"],
-			"ui": ["./app/components/ui/index.ts"]
+			"~/*": ["./app/*"]
 		},
 		"noEmit": true
 	}
